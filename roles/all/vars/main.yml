@@ -1,0 +1,5 @@
+---
+  #general purpose variables for system
+- name: general purpose Variables
+  cloud_vars:
+    name: ospcloud

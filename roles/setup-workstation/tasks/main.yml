@@ -1,9 +1,8 @@
 ---
-# tasks file for setup-workstation
+# main file for workstation set-up.  Goes refers to all sub-tasks
 - include_tasks: pre-tasks.yml
 - include_tasks: create-flavor.yml
 - include_tasks: create-keypair.yml
 - include_tasks: create-sg.yml
 - include_tasks: create-image.yml
 - include_tasks: create-network.yml
-

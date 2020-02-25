@@ -1,16 +1,19 @@
+---
 - name: Download RHEL image
   get_url:
-     url: http://www.opentlc.com/download/osp_advanced_networking/rhel-guest-image-7.2-20151102.0.x86_64.qcow2
-     dest: /tmp/rhel.qcow2
+     url: "{{ item.value.url }}"
+     dest: "{{ item.value.dest }}"
+  with_dict: image_loc
   tags:
       - tested
+
 - name: Create openstack image
   os_image:
-     cloud: ospcloud
-     name: rhel-guest
-     container_format: bare
-     disk_format: qcow2
-     state: present
-     filename: /tmp/rhel.qcow2
+     cloud: "{{ item.value.cloud}}"
+     name: "{{ item.value.name }}"
+     container_format: "{{ item.value.container_format }}"
+     disk_format: "{{ item.value.disk_format }}"
+     state: "{{ item.value.state }}"
+     filename: "{{ item.value.filename }}"
   tags:
       - tested
