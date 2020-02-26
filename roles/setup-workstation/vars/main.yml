@@ -28,12 +28,3 @@ osp_router:
     state: present
     name: router
     network: ext_network
-
-# variables for creating openstack os_nova_flavor.  Defined as variables in order to provide more flexdibility
-flavor_fields:
-  cloud: ospcloud
-  state: present
-  name: m2.small
-  ram: "2048"
-  vcpus: "1"
-  disk: "10"
