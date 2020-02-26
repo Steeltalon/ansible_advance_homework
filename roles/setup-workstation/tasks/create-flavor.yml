@@ -7,4 +7,4 @@
      ram: "{{ item.value.ram }}"
      vcpus: "{{ item.value.vcpus }}"
      disk: "{{ item.value.disk }}"
-  with_dict: flavor_fields
+  #with_dict: flavor_fields

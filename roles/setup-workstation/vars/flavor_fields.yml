@@ -1,9 +1,10 @@
 ---
 # variables for creating openstack os_nova_flavor.  Defined as variables in order to provide more flexdibility
-flavor_fields:
-  cloud: ospcloud
-  state: present
-  name: m2.small
-  ram: 2048
-  vcpus: 1
-  disk: 10
+-name: assigning values for m2.small flavor
+  flavor_fields:
+    cloud: ospcloud
+    state: present
+    name: m2.small
+    ram: 2048
+    vcpus: 1
+    disk: 10
