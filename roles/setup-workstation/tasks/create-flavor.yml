@@ -3,6 +3,7 @@
   os_nova_flavor:
      cloud: "{{ item.value.cloud }}"
   with_dict: cloud_vars
+  os_nova_flavor:
      state: "{{ item.value.state }}"
      name: "{{ item.value.name }}"
      ram: "{{ item.value.ram }}"
