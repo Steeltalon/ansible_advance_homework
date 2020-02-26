@@ -15,5 +15,6 @@
      disk_format: "{{ item.value.disk_format }}"
      state: "{{ item.value.state }}"
      filename: "{{ item.value.filename }}"
+  with_dict: os_properites
   tags:
       - tested
