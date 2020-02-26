@@ -2,7 +2,6 @@
 - name: include dictionary for flavor_fields
   vars:
     file: flavor_fields.yml
-    name: flavor_fields
 - name: Create m2.small flavor
   os_nova_flavor:
      cloud: "{{ item.value.cloud }}"
