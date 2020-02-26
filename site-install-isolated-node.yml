@@ -11,9 +11,6 @@
             [isolated_group_osp:vars]
             controller=tower
     - name: "Run Ansible Tower setup"
-      shell: |
-        async: 3600
-        poll: 36
-      args:
-        executable: /root/ansible-tower-setup-latest/setup.sh
-        
+    - shell: /root/ansible-tower-setup-latest/setup.sh
+      #  async: 3600
+      #  poll: 36
