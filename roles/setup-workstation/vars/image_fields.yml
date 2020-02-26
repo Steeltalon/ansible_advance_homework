@@ -1,15 +1,14 @@
 ---
 # Variables for acquiring and building out the OS image
-- name: acquiring location and destination of OS image
-  image_loc:
-     url: http://www.opentlc.com/download/osp_advanced_networking/rhel-guest-image-7.2-20151102.0.x86_64.qcow2
-     dest: /tmp/rhel.qcow2
+image_loc:
+   url: http://www.opentlc.com/download/osp_advanced_networking/rhel-guest-image-7.2-20151102.0.x86_64.qcow2
+   dest: /tmp/rhel.qcow2
 
-- name: assigning properties to os image
-  os_properites:
-     cloud: ospcloud
-     name: rhel-guest
-     container_format: bare
-     disk_format: qcow2
-     state: present
-     filename: /tmp/rhel.qcow2
+#assigning properties to os image
+os_properites:
+   cloud: ospcloud
+   name: rhel-guest
+   container_format: bare
+   disk_format: qcow2
+   state: present
+   filename: /tmp/rhel.qcow2
