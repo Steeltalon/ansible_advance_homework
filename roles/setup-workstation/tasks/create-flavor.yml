@@ -1,10 +1,10 @@
 ---
 - name: Create m2.small flavor
   os_nova_flavor:
-     cloud: "{{ item.value.cloud }}"
-     state: "{{ item.value.state }}"
-     name: "{{ item.value.name }}"
-     ram: "{{ item.value.ram }}"
-     vcpus: "{{ item.value.vcpus }}"
-     disk: "{{ item.value.disk }}"
+     cloud: "{{ value.cloud }}"
+     state: "{{ value.state }}"
+     name: "{{ value.name }}"
+     ram: "{{ value.ram }}"
+     vcpus: "{{ value.vcpus }}"
+     disk: "{{ value.disk }}"
   with_dict: "{{ flavor_fields }}"
