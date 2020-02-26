@@ -13,4 +13,4 @@
   roles:
     - setup-workstation
 
-- import_playbook: site-install-isolated-node.yml
+- include_playbook: site-install-isolated-node.yml
