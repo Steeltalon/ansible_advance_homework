@@ -36,4 +36,4 @@
   authorized_key:
     user: cloud-user
     state: present
-    key: "{{ lookup('file', '/root/.ssh/openstack.pub') }}"
+    key: "{{ lookup('file', '/root/.ssh/openstack.pem') }}"
