@@ -3,7 +3,7 @@
   get_url:
      url: "{{ item.value.url }}"
      dest: "{{ item.value.dest }}"
-  with_dict: image_loc
+  with_dict: "{{ image_loc }}"
   tags:
       - tested
 
@@ -15,6 +15,6 @@
      disk_format: "{{ item.value.disk_format }}"
      state: "{{ item.value.state }}"
      filename: "{{ item.value.filename }}"
-  with_dict: os_properites
+  with_dict: "{{ os_properites }}"
   tags:
       - tested
