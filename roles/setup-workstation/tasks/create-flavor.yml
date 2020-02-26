@@ -1,6 +1,6 @@
 ---
 - name: include dictionary for flavor_fields
-  vars:
+  include_vars:
     file: flavor_fields.yml
 - name: Create m2.small flavor
   os_nova_flavor:
