@@ -1,8 +1,8 @@
 ---
 # Variables for acquiring and building out the OS image
 image_loc:
-   url: http://www.opentlc.com/download/osp_advanced_networking/rhel-guest-image-7.2-20151102.0.x86_64.qcow2
-   dest: /tmp/rhel.qcow2
+   url:
+   dest:
 
 #assigning properties to os image
 os_properites:
