@@ -1,0 +1,5 @@
+---
+# vars detailing the yum repositories and their destinations
+yum_repo_filename: all_yum_repositories.repo
+yum_repo_file: ../files/all_yum_repositories.repo
+yum_repo_folder: /etc/yum.repos.d

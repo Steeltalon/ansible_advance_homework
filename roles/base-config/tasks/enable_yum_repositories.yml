@@ -1,0 +1,7 @@
+---
+# copy the yum repositories to all hosts and chmod to rw for user and read for group and others
+- name: Enable yum repository
+  copy:
+    src: "{{ all_yum_repos }}"
+    dest: "{{ yum_repo_folder }}/{{ yum_repo_filename }}"
+    mode: '0644'

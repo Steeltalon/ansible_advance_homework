@@ -1,16 +1,23 @@
+# get openstack facts
 - hosts: workstation
   gather_facts: true
   roles:
   - name: osp-facts
 
-# Setup front-end load balancer tier
+#set base configuration and enable yum repositories
 
+-name: set up base configuration on all hosts
+  hosts: all
+  gather_facts: true
+  roles:
+    - "{name: base-config, tags: base-config}"
+
+# Setup front-end load balancer tier
 
 - name: setup load-balancer tier
   hosts: frontends
   become: yes
   roles:
-    - {name: base-config, tags: base-config}
     - {name: lb-tier, tags: [lbs, haproxy]}
 
 # Setup application servers tier
