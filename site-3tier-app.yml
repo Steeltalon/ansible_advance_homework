@@ -1,4 +1,4 @@
-- name: 3 Tier Application setup
+- name: "3 Tier Application setup"
 # get openstack facts
   hosts: workstation
   gather_facts: true
