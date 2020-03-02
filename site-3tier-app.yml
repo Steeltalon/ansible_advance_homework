@@ -7,7 +7,7 @@ tasks:
 
 #set base configuration and enable yum repositories
 
--   hosts: all
+  - hosts: all
     gather_facts: true
     roles:
       role: base-config
