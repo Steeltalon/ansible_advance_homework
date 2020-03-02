@@ -1,9 +1,9 @@
-- name: "3 Tier Application setup"
 # get openstack facts
-  hosts: workstation
+- hosts: workstation
   gather_facts: true
   tasks:
-    include_role: osp-facts
+    - name: gather facts from OpenStack Cloud
+    - include_role: osp-facts
 
 #set base configuration and enable yum repositories
 - name: Set base configuration and enable yum repositories
