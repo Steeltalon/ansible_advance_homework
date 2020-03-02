@@ -6,7 +6,7 @@
 
 #set base configuration and enable yum repositories
 
--name: set up base configuration on all hosts
+- name: set up base configuration on all hosts
   hosts: all
   gather_facts: true
   roles:
