@@ -10,7 +10,9 @@
   hosts: all
   gather_facts: true
   roles:
-    - "{name: base-config, tags: base-config}"
+    role: base-config
+    tags:
+      - base-config
 
 # Setup front-end load balancer tier
 
@@ -19,7 +21,10 @@
   become: yes
   gather_facts: false
   roles:
-    - "{name: lb-tier, tags: [lbs, haproxy]}"
+    role: lb-tier
+    tags:
+      - lbs
+      - haproxy
 
 # Setup application servers tier
 
@@ -28,7 +33,7 @@
   become: yes
   gather_facts: false
   roles:
-    - "{name: app-tier, tags: [apps, tomcat]}"
+    - { name: app-tier, tags: [apps, tomcat] }
 
 # Setup database tier
 
@@ -37,4 +42,4 @@
   hosts: appdbs
   gather_facts: false
   roles:
-    - "{name: db-tier, tags: [dbs, postgres]}"
+    - { name: db-tier, tags: [dbs, postgres] }
