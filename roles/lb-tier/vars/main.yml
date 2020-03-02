@@ -1,2 +1,3 @@
----
-# vars file for lb-tier
+# vars file specifying GUID and haproxy_config_file location in the frontend server
+haproxy_config_file: /etc/haproxy/haproxy.cfg
+GUID: 1a47

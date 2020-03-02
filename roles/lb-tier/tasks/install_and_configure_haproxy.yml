@@ -1,0 +1,12 @@
+---
+- name: install Packages
+  yum:
+    name: "{{ packages }}"
+    state: latest
+
+- name: configure haproxy
+  template:
+    src: haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+  notify: start haproxy
+...

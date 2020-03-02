@@ -1,2 +1,11 @@
 ---
-# tasks file for db-tier
+# runs the install_postgresql role
+- name: install Postgresql
+  include_role:
+    name: install_postgresql
+
+# runs the install_apache role
+- name: install httpd
+  include_role:
+    name: install_apache
+...

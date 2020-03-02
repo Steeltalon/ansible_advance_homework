@@ -1,0 +1,7 @@
+---
+- name: install apache
+  yum:
+    name: "{{ packages }}"
+    state: latest
+  notify: start apache
+...

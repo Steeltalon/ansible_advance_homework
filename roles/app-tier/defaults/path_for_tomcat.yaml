@@ -1,0 +1,4 @@
+---
+#default path for the ansible tomcat folder
+ansible_tomcat_path: /usr/share/tomcat/webapps/ansible
+...
