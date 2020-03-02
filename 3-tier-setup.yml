@@ -1,0 +1,6 @@
+---
+# get openstack facts
+roles:
+  - osp_info
+  - base-config
+...
