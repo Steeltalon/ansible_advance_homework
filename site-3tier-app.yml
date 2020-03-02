@@ -3,7 +3,8 @@
   gather_facts: true
   tasks:
     - name: gather facts from OpenStack Cloud
-    - include_role: osp-facts
+    - roles:
+        - osp-facts
 
 #set base configuration and enable yum repositories
 - name: Set base configuration and enable yum repositories
