@@ -1,13 +1,13 @@
-name: 3 Tier Application setup
+- name: 3 Tier Application setup
 # get openstack facts
-- hosts: workstation
+  hosts: workstation
   gather_facts: true
   roles:
       role: osp-facts
 
 #set base configuration and enable yum repositories
-
-- hosts: all
+- name: Set base configuration and enable yum repositories
+  hosts: all
   gather_facts: true
   roles:
     role: base-config
@@ -15,7 +15,8 @@ name: 3 Tier Application setup
       - base-config
 
 # Setup front-end load balancer tier
-- hosts: frontends
+- name: Setup front-end load balancer tier (haproxy)
+  hosts: frontends
   become: yes
   gather_facts: false
   roles:
@@ -25,13 +26,15 @@ name: 3 Tier Application setup
         - haproxy
 
 # Setup application servers tier
-- hosts: apps
+- name: Setup application servers tier (tomcat)
+  hosts: apps
   become: yes
   gather_facts: false
   roles:
     - { name: app-tier, tags: [apps, tomcat] }
 
 # Setup database tier
+- name: setup database tier (postgresql and httpd)
 - hosts: appdbs
   become: yes
   gather_facts: false
