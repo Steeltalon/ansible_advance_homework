@@ -2,22 +2,20 @@
 - hosts: workstation
   gather_facts: true
   roles:
-  - name: osp-facts
+    role: osp-facts
 
 #set base configuration and enable yum repositories
 
-- name: set up base configuration on all hosts
-  hosts: all
+- hosts: all
   gather_facts: true
   roles:
     role: base-config
     tags:
-      - base-config
+        - base-config
 
 # Setup front-end load balancer tier
 
-- name: setup load-balancer tier
-  hosts: frontends
+- hosts: frontends
   become: yes
   gather_facts: false
   roles:
@@ -28,8 +26,7 @@
 
 # Setup application servers tier
 
-- name: setup app tier
-  hosts: apps
+- hosts: apps
   become: yes
   gather_facts: false
   roles:
@@ -37,9 +34,8 @@
 
 # Setup database tier
 
-- name: setup database tier
+- hosts: appdbs
   become: yes
-  hosts: appdbs
   gather_facts: false
   roles:
     - { name: db-tier, tags: [dbs, postgres] }
