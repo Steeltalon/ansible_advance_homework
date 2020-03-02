@@ -1,5 +1,6 @@
 # get openstack facts
 - hosts: workstation
+  become: yes
   gather_facts: true
   tasks:
     - name: gather facts from OpenStack Cloud

@@ -1,0 +1,6 @@
+# get openstack facts
+- hosts: workstation
+  gather_facts: true
+  - name: gather facts from OpenStack Cloud
+  - roles:
+      - osp-facts
