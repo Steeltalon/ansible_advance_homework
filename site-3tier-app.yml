@@ -1,8 +1,6 @@
 # get openstack facts
-- hosts: workstation
-  gather_facts: true
-  roles:
-    - { name: osp-facts, tags: [osp-workstation, openstack]}
+- name: Call role to gather openstack facts
+  include_role: osp_info
 
 #set base configuration and enable yum repositories
 - name: Set base configuration and enable yum repositories
