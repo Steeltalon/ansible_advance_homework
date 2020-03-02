@@ -1,16 +1,16 @@
 ---
-include_role:
-  name: install_tomcat
+tasks:
+  - include_role:
+    name: install_tomcat
 
-#create directory using path described in app-tier/defaults/path_for_tomcat.yaml
-- name: Create directory
-  file:
-    path: "{{ ansible_tomcat_path }}"
-    state: directory
-
-#copy the index.html.j2 to the tomcat app servers in an index.html file
-- name: Copy static index.html to app servers
-  template:
-    src: index.html.j2
-    dest: "{{ansible_tomcat_path }}/index.html"
+# create directory using path described in app-tier/defaults/path_for_tomcat.yaml
+  - name: Create directory
+    file:
+      path: "{{ ansible_tomcat_path }}"
+      state: directory
+# copy the index.html.j2 to the tomcat app servers in an index.html file
+  - name: Copy static index.html to app servers
+    template:
+      src: index.html.j2
+      dest: "{{ansible_tomcat_path }}/index.html"
 ...
