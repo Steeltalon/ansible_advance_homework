@@ -5,13 +5,15 @@
   hosts: localhost
   tasks:
     - name: launch instance "{{ item.name }}"
+      debug:
+        msg: "launching "{{ item.name }}
       os_server:
         state: "{ item.state }"
         name: "{ item.name }"
         cloud: "{ item.cloud }"
         region_name: item.region_name
-        interface: public
-        network: ext_network
+        interface: internal
+        network: int_subnet
         image: "{ item.image }"
         flavor: "{ item.flavor }"
         meta: "{ group: '{item.meta.group}', deployment_name: '{ deployment_name }' }"
@@ -19,7 +21,7 @@
       with_dict: "{{ osp_servers }}"
 
 
-- name: Add floating IP to Servers
+- #name: Add floating IP to Servers
 
 
-- name: Wait for server to be available
+- #name: Wait for server to be available
