@@ -4,6 +4,7 @@
     tasks:
       - include_role:
           name: deploy_os_servers
+          vars_from: deploy_os_servers
         with_dict: "{{ osp_servers }}"
       - debug:
           msg: successfully deployed { item.value.name }
