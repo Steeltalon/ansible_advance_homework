@@ -14,7 +14,7 @@
         network: ext_network
         image: "{ item.image }"
         flavor: "{ item.flavor }"
-        meta: "{ group: "{item.meta.group}", deployment_name: "{ deployment_name }" }"
+        meta: "{ group: '{item.meta.group}', deployment_name: '{ deployment_name }' }"
         security_groups: "{ item.security_group }"
       with_dict: "{{ osp_servers }}"
 
