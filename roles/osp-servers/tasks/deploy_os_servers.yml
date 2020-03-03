@@ -5,12 +5,12 @@
   hosts: localhost
   tasks:
     - debug:
-        msg: launching {{ item.name }}
+        msg: launching "{{ item.name }}"
     - os_server:
         state: "{ item.state }"
         name: "{ item.name }"
         cloud: "{ item.cloud }"
-        region_name: item.region_name
+        region_name: "{{ region_name }}"
         interface: internal
         network: int_subnet
         image: "{ item.image }"
