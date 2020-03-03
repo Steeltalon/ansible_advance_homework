@@ -7,8 +7,7 @@
           #file: osp_server_values.yaml
       - debug:
           msg: included vars
-      - include_task:
-          name: deploy_os_servers.yaml
+      - include_tasks: deploy_os_servers.yaml
         with_dict: "{{ osp_servers }}"
       - debug:
           msg: successfully deployed { item.value.name }
