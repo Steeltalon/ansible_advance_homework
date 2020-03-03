@@ -4,6 +4,7 @@ osp_servers:
   frontend:
     cloud: ospcloud
     name: frontend
+    region_name: RegionOne
     state: present
     image: rhel-guest
     key_name: ansible_ssh
@@ -14,6 +15,7 @@ osp_servers:
   app1:
     cloud: ospcloud
     name: app1
+    region_name: RegionOne
     state: present
     image: rhel-guest
     key_name: ansible_ssh
@@ -24,6 +26,7 @@ osp_servers:
   app2:
     name: app2
     cloud: ospcloud
+    region_name: RegionOne
     state: present
     image: rhel-guest
     key_name: ansible_ssh
@@ -34,6 +37,7 @@ osp_servers:
   db:
     name: db
     cloud: ospcloud
+    region_name: RegionOne
     state: present
     image: rhel-guest
     key_name: ansible_ssh
