@@ -4,7 +4,7 @@
 - name: Create new server instances and attaches them a network and passes metadata to the instance
   hosts: localhost
   tasks:
-    - name: launch instance "{{ item.name }}"
+    - name: "launch instance {{ item.name }}"
       debug:
         msg: "launching {{ item.name }}"
       os_server:
