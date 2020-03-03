@@ -3,8 +3,8 @@
     hosts: localhost
     tasks:
       - include_role:
-          name: deploy_os_servers
-          vars_from: deploy_os_servers
+          name: deploy_os_servers.yaml
+          vars_from: osp_server_values.yaml
         with_dict: "{{ osp_servers }}"
       - debug:
           msg: successfully deployed { item.value.name }
