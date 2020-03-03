@@ -1,9 +1,11 @@
 ---
   - name: loop over server deploys
-    hosts: localhost    
+    hosts: localhost
     tasks:
       - include_vars:
         roles\deploy_os_servers\vars\osp_server_values.yaml
+      - debug:
+          msg: included vars
       - include_role:
           name: deploy_os_servers.yaml
         with_dict: "{{ osp_servers }}"
