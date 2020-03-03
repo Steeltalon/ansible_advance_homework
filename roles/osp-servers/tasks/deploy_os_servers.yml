@@ -48,7 +48,7 @@
             delegate_to: "{{ inventory_hostname }}"
 
       with_dict: "{{ osp_servers }}"
-      loop_control:
-        label: "{{ item.key }}"
+      #loop_control:
+        #label: "{{ item.key }}"
     - debug:
         msg: successfully deployed server instances
