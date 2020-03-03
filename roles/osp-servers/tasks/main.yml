@@ -5,6 +5,6 @@
       - include_role:
           name: deploy_os_servers
         with_dict: osp_servers
-        debug:
+      - debug:
           msg: successfully deployed { item.value.name }
 ...
