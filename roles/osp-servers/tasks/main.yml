@@ -1,13 +1,12 @@
 ---
   - name: loop over server deploys
-    hosts: localhost
+    hosts: jumpbox
     tasks:
-      - include_vars:
+      - name: using dictionary for OSPCloud instance definitions
+        include_vars:
           dir: /root/ansible_advance_homework/roles/all/vars
-          #file: osp_server_values.yaml
-      - debug:
-          msg: included vars
-      - include_tasks: deploy_os_servers.yaml
+      - name: deploy server instances in OSPCloud
+        include_tasks: deploy_os_servers.yaml
         with_dict: "{{ osp_servers }}"
       - debug:
           msg: successfully deployed { item.value.name }
