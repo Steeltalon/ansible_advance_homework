@@ -3,7 +3,7 @@
     hosts: localhost
     tasks:
       - include_vars:
-          name: osp_server_values.yaml
+          file: osp_server_values.yaml
       - debug:
           msg: included vars
       - include_role:
