@@ -3,7 +3,6 @@
 # tasks file for osp.servers
 - name: Create new server instances and attaches them a network and passes metadata to the instance
 # loop on the values in osp_servers to populate all of the os_server information
-- tasks:
   os_server:
     state: "{{ item.value.state }}"
     name: "{{ item..value.name }}"
