@@ -6,7 +6,7 @@
   tasks:
     - debug:
         msg: launching {{ item.name }}
-      os_server:
+    - os_server:
         state: "{ item.state }"
         name: "{ item.name }"
         cloud: "{ item.cloud }"
