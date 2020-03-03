@@ -1,6 +1,6 @@
 ---
   - name: loop over server deploys
-    host: localhost
+    hosts: localhost
     tasks:
       - include_role:
           name: deploy_os_servers
