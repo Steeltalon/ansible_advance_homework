@@ -6,6 +6,7 @@
     add_host:
        name: "workstation-2d6e.rhpds.opentlc.com"
        group: workstation
+       tags: osp_workstation, openstack
 
 
 - hosts: workstation

@@ -1,0 +1,10 @@
+---
+# get openstack facts
+- hosts: workstation
+  gather_facts: true
+  tasks:
+    - include_role:
+        - osp-facts
+      tags: [ osp_workstation, osp_servers ]
+    - debug:
+        msg: 'OSP Workstation polled successfully'
