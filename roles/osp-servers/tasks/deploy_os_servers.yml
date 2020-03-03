@@ -1,0 +1,25 @@
+---
+
+# tasks file for osp.servers
+- name: Create new server instances and attaches them a network and passes metadata to the instance
+  hosts: localhost
+  tasks:
+    - name: launch instance "{{ item.name }}"
+      os_server:
+        state: "{ item.state }"
+        name: "{ item.name }"
+        cloud: "{ item.cloud }"
+        region_name: item.region_name
+        interface: public
+        network: ext_network
+        image: "{ item.image }"
+        flavor: "{ item.flavor }"
+        meta: "{ group: "{item.meta.group}", deployment_name: "{ deployment_name }" }"
+        security_groups: "{ item.security_group }"
+      with_dict: "{{ osp_servers }}"
+
+
+- name: Add floating IP to Servers
+
+
+- name: Wait for server to be available
