@@ -7,7 +7,7 @@
           #file: osp_server_values.yaml
       - debug:
           msg: included vars
-      - include_role:
+      - include_task:
           name: deploy_os_servers.yaml
         with_dict: "{{ osp_servers }}"
       - debug:
