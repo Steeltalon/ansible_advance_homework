@@ -4,7 +4,6 @@
     tasks:
       - include_vars:
           dir: vars/all
-          file: osp_server_values.yaml
       - debug:
           msg: included vars
       - include_role:
