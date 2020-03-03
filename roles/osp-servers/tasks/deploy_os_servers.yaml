@@ -4,8 +4,7 @@
 - name: Create new server instances and attaches them a network and passes metadata to the instance
 # loop on the values in osp_servers to populate all of the os_server information
   tasks:
-    - name: "build instance for {{ item.key }}"
-      block:
+    - block:
         - name: OS Server Build
           os_server:
             state: "{{ item.value.state }}"
