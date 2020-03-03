@@ -4,19 +4,18 @@
 - name: Create new server instances and attaches them a network and passes metadata to the instance
   hosts: localhost
   tasks:
-    - debug:
-        msg: launching "{{ item.name }}"
+# loop on the values in osp_servers to populate all of the os_server information
     - os_server:
-        state: "{ item.state }"
-        name: "{ item.name }"
-        cloud: "{ item.cloud }"
-        region_name: "{{ region_name }}"
+        state: "{{ item.value.state}}"
+        name: "{{ item..value.name }}"
+        cloud: "{{ item.value.cloud }}"
+        region_name: "{{ item.value.region_name }}"
         interface: internal
         network: int_subnet
-        image: "{ item.image }"
-        flavor: "{ item.flavor }"
-        meta: "{ group: '{item.meta.group}', deployment_name: '{ deployment_name }' }"
-        security_groups: "{ item.security_group }"
+        image: "{{ item.value.image }}"
+        flavor: "{{ item.value.flavor }}"
+        meta: "{ group: '{{ item.value.meta.group }}', deployment_name: '{{ item.value.meta.deployment_name }}' }"
+        security_groups: "{{ item.value.security_group }}"
       with_dict: "{{ osp_servers }}"
 
 
