@@ -3,46 +3,45 @@
 # tasks file for osp.servers
 - name: Create new server instances and attaches them a network and passes metadata to the instance
 # loop on the values in osp_servers to populate all of the os_server information
-  tasks:
-    - block:
-        - name: OS Server Build
-          os_server:
-            state: "{{ item.value.state }}"
-            name: "{{ item.value.name }}"
-            cloud: "{{ item.value.cloud }}"
-            region_name: "{{ item.value.region_name }}"
-            interface: internal
-            network: int_subnet
-            image: "{{ item.value.image }}"
-            flavor: "{{ item.value.flavor }}"
-            meta: "{ group: { item.value.meta.group }, deployment_name: { item.value.meta.deployment_name } }"
-            security_groups: "{{ item.value.security_group }}"
-            userdata: |
-              #!/bin/bash
-              cat ~/.ssh/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
-              cp /tmp/rhel.qcow2 /etc/yum.repos.d/rhel.qcow2
-          register: instanceip
+  block:
+    - name: OS Server Build
+      os_server:
+        state: "{{ item.value.state }}"
+        name: "{{ item.value.name }}"
+        cloud: "{{ item.value.cloud }}"
+        region_name: "{{ item.value.region_name }}"
+        interface: internal
+        network: int_subnet
+        image: "{{ item.value.image }}"
+        flavor: "{{ item.value.flavor }}"
+        meta: "{ group: { item.value.meta.group }, deployment_name: { item.value.meta.deployment_name } }"
+        security_groups: "{{ item.value.security_group }}"
+        userdata: |
+          #!/bin/bash
+          cat ~/.ssh/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
+          cp /tmp/rhel.qcow2 /etc/yum.repos.d/rhel.qcow2
+      register: instanceip
 #curl -o /tmp/internal.repo http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
-        - name: Add floating IP to Servers
-          os_floating_ip:
-            cloud: "{{ item.value.cloud }}"
-            state: present
-            reuse: yes
-            server: "{{ item.value.name }}"
-            network: ext_network
-            wait: true
-            timeout: 180
-          register: instancefloatingip
-        - name: Show "{{ instanceip }}" public IP
-          debug: var=instancefloatingip.floating_ip.floating_ip_address
+    - name: Add floating IP to Servers
+      os_floating_ip:
+        cloud: "{{ item.value.cloud }}"
+        state: present
+        reuse: yes
+        server: "{{ item.value.name }}"
+        network: ext_network
+        wait: true
+        timeout: 180
+      register: instancefloatingip
+    - name: Show "{{ instanceip }}" public IP
+      debug: var=instancefloatingip.floating_ip.floating_ip_address
 
-        - name: Wait for "{{ item.value.name }}" to be available
-          wait_for:
-            host: "{{ instancefloatingip.floating_ip.floating_ip_address }}"
-            port: 22
-            search_regex: OpenSSH
-            timeout: 600
-            delegate_to: "{{ inventory_hostname }}"
+    - name: Wait for "{{ item.value.name }}" to be available
+      wait_for:
+        host: "{{ instancefloatingip.floating_ip.floating_ip_address }}"
+        port: 22
+        search_regex: OpenSSH
+        timeout: 600
+        delegate_to: "{{ inventory_hostname }}"
 
     - debug:
         msg: successfully deployed server and network for "{{ item.key }}"
