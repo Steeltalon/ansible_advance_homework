@@ -3,8 +3,9 @@
 - hosts: workstation
   gather_facts: true
   tasks:
+    - name: gather OpenStack facts
     - include_role:
-        - osp-facts
+        name: osp-facts
       tags: [ osp_workstation, osp_servers ]
     - debug:
         msg: 'OSP Workstation polled successfully'
