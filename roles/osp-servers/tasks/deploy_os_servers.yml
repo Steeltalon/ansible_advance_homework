@@ -16,8 +16,8 @@
     meta: "{ group: { item.value.meta.group }, deployment_name: { item.value.meta.deployment_name } }"
     security_groups: "{{ item.value.security_group }}"
   with_dict: "{{ osp_servers }}"
-  loop_control:
-    label: "{{ item.key }}"
+  #loop_control:
+    #label: "{{ item.key }}"
 
 
 - #name: Add floating IP to Servers
