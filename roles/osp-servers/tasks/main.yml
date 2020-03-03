@@ -3,7 +3,8 @@
     hosts: localhost
     tasks:
       - include_vars:
-          file: osp_server_values.yaml
+          dir: /root/ansible_advance_homework/roles/all/vars
+          #file: osp_server_values.yaml
       - debug:
           msg: included vars
       - include_role:
