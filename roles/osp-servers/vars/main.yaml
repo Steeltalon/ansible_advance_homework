@@ -1,9 +1,10 @@
 ---
 # vars file for osp.servers
+
 osp_servers:
-- frontend:
+  frontend:
     cloud: ospcloud
-    name: frontend
+    server_name: frontend
     region_name: RegionOne
     state: present
     image: rhel-guest
@@ -14,9 +15,9 @@ osp_servers:
     net: int_network
     group: frontends
     deployment_name: QA
-- app1:
+  app1:
     cloud: ospcloud
-    name: app1
+    server_name: app1
     region_name: RegionOne
     state: present
     image: rhel-guest
@@ -27,8 +28,8 @@ osp_servers:
     net: int_network
     group: apps
     deployment_name: QA
-- app2:
-    name: app2
+  app2:
+    server_name: app2
     cloud: ospcloud
     region_name: RegionOne
     state: present
@@ -40,8 +41,8 @@ osp_servers:
     net: int_network
     group: apps
     deployment_name: QA
-- db:
-    name: db
+  db:
+    server_name: db
     cloud: ospcloud
     region_name: RegionOne
     state: present
