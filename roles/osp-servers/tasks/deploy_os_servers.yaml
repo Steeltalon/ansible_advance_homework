@@ -14,7 +14,8 @@
         key_name: "{{ item.value }}"
         interface: "{{ item.value }}"
         flavor: "{{ item.value }}"
-        security_groups: "{{ item.value }}"
+        security_groups:
+          "{ - { item.value } }"
         network: "{{ item.value }}"
         meta: "{ group: { item.value }, deployment_name: { item.value } }"
         wait: "{{ item.value }}"
