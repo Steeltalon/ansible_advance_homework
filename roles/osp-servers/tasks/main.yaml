@@ -1,9 +1,9 @@
 ---
-  
-  - debug:
-      msg: beginning loop process
-  - include_tasks: deploy_os_servers.yaml
-    with_items: "{{ osp_servers }}"
-  - debug:
-      msg: successfully deployed { item.value.name }
-...
+# main playbook for running tasks to generate instances and apply ext_network
+
+Name: Deploy frontend
+tasks:
+  - name: loading vars for frontend servers
+    include_vars: frontend_vars.yaml
+  - name: Running tasks to build frontend osp_servers
+    include_tasks: deploy_servers.yaml

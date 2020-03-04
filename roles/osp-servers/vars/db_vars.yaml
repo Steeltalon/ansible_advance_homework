@@ -1,0 +1,4 @@
+---
+  server_name: db
+  sec_group: db
+  group: appdbs

@@ -1,0 +1,19 @@
+---
+#general variables for defining any server instance
+  cloud_name: ospcloud
+  region_name: RegionOne
+  state_value: present
+  image_name: rhel-guest
+  ssh_key_name: ansible_ssh
+  wait_value: True
+  interface_type: internal
+  flavor_name: m2.small
+  net_name: int_network
+  deployment_name: QA
+  float_ip_state: present
+  float_ip_reuse_value: true
+  float_ip_net: ext_network
+  float_ip_wait: true
+  float_ip_timeout: True
+
+...

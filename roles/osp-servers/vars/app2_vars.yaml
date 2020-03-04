@@ -1,0 +1,4 @@
+---
+  server_name: app2
+  sec_group: apps
+  group: apps

@@ -1,0 +1,46 @@
+- name: Create a server instance and set internal and external networking
+  tasks:
+    block:
+      - name: os_server used to create instance of ${{ server_name }} using os_server module
+    # this command references server specific variables in frontend_vars.yaml
+    # it also references general instance variables in the defaults/general_instance_vars.yaml
+        os_server:
+          cloud: "{{ cloud_name }}"
+          name: "{{ server_name }}"
+          region_name:  "{{ region_name }}"
+          image: "{{ image_name }}"
+          meta: "group={{ group_name }},deployment_name={{ deployment_name }}"
+          flavor: m2.small
+          security_groups: "{{ sec_group }}"
+          key_name: "{{ ssh_key_name }}"
+          wait: "{{ wait_value }}"
+          nics:
+            - net-name: "{{ net_name }}"
+          userdata: |
+            #!/bin/bash
+            curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
+            cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
+            curl -o /tmp/internal.repo http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
+            cp /tmp/internal.repo /etc/yum.repos.d/internal.repo
+        register: instanceip
+    - name: Adding floating IP to "{{ server_name }}" via os_floating_ip module
+# The servers have already been created so this will pull values from the defaults/general_instance_vars file to apply floating IP
+      os_floating_ip:
+          cloud: "{{ ospcloud }}"
+          state: "{{ float_ip_state }}"
+          reuse: "{{ float_ip_reuse_value }}"
+          server: "{{ instance_name }}"
+          network: "{{ float_ip_net }}"
+          wait: "{{ float_ip_wait }}"
+          timeout: "{{ float_ip_timeout }}"
+      register: instancefloatingip
+    - name: Show "{{ instanceip }}" public IP
+      debug: var=instancefloatingip.floating_ip.floating_ip_address
+    - name: Wait for "{{ instance_name }}" to be available
+# values for the wait phase are based in the server specific vars files
+      wait_for:
+        host: "{{ instancefloatingip.floating_ip.floating_ip_address }}"
+        port: "{{ port_value }}"
+        search_regex: "{{ search_value }}"
+        timeout: "{{ timeout_value }}"
+      delegate_to: "{{ inventory_hostname }}"

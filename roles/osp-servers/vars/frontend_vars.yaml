@@ -1,0 +1,7 @@
+---
+  server_name: frontend
+  sec_group: frontend
+  group_name: frontends
+  port_value: 22
+  search_value: OpenSSH
+  timeout_value: 600
