@@ -6,7 +6,8 @@
     include_vars:
       dir: /root/ansible_advance_homework/roles/osp-servers/vars/main.yaml
   - name: deploy server instances in OSPCloud
-    - name: OS Server Build "{{ item.server_name }}"
+    - debug:
+        msg: OS Server Build "{{ item.server_name }}"
       os_server:
         cloud:       "{{ item.cloud }}"
         name:        "{{ item.name }}"
