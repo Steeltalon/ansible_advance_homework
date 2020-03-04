@@ -4,7 +4,7 @@
 - name: Create new server instances and attaches them a network and passes metadata to the instance
 # loop on the values in osp_servers to populate all of the os_server information
   block:
-    - name: OS Server Build
+    - name: OS Server Build "{{ item.value.name }}"
       os_server:
         state: "{{ item.value.state }}"
         name: "{{ item.value.name }}"
@@ -48,5 +48,5 @@
         timeout: 600
         delegate_to: "{{ inventory_hostname }}"
 
-    - debug:
-        msg: successfully deployed server and network for "{{ item.key }}"
+    #- debug:
+    #    msg: successfully deployed server and network for "{{ item.key }}"
