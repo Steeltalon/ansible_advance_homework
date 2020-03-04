@@ -6,28 +6,28 @@
   include_vars:
     dir: /root/ansible_advance_homework/roles/osp-servers/vars/main.yaml
 - name: deploy server instances in OSPCloud
-- os_server:
-    cloud:       "{{ item.cloud }}"
-    name:        "{{ item.name }}"
-    region_name: "{{ item.region_name }}"
-    state:       "{{ item.3.state) }}"
-    image: "{{ item.image }}"
-    key_name: "{{ item.key_name }}"
-    interface: "{{ item.interface }}"
-    flavor: "{{ item.flavor }}"
-    security_groups:
-      "{ - { item.sec_group } }"
-    network: "{{ item.net }}"
-    meta: "{ group: { item.group }, deployment_name: { item.deployment_name } }"
-    wait: true
-    userdata: |
-      #!/bin/bash
-      curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
-      cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
-      curl -o /tmp/internal.repo http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
-      cp /tmp/internal.repo /etc/yum.repos.d/internal.repo
-  with_items: { osp_servers }
-  register: instanceip
+    os_server:
+      cloud:       "{{ item.cloud }}"
+      name:        "{{ item.name }}"
+      region_name: "{{ item.region_name }}"
+      state:       "{{ item.3.state) }}"
+      image: "{{ item.image }}"
+      key_name: "{{ item.key_name }}"
+      interface: "{{ item.interface }}"
+      flavor: "{{ item.flavor }}"
+      security_groups:
+        "{ - { item.sec_group } }"
+      network: "{{ item.net }}"
+      meta: "{ group: { item.group }, deployment_name: { item.deployment_name } }"
+      wait: true
+      userdata: |
+        #!/bin/bash
+        curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
+        cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
+        curl -o /tmp/internal.repo http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
+        cp /tmp/internal.repo /etc/yum.repos.d/internal.repo
+    with_items: { osp_servers }
+    register: instanceip
 - debug:
       msg: successfully deployed
 ...
