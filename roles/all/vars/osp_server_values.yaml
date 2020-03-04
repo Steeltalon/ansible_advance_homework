@@ -8,10 +8,13 @@ osp_servers:
     state: present
     image: rhel-guest
     key_name: ansible_ssh
+    interface: internal
     flavor: m2.small
     security_group: frontend
+    net-name: int_network
     group: frontends
     deployment_name: QA
+    wait: yes
   app1:
     cloud: ospcloud
     name: app1
@@ -19,10 +22,13 @@ osp_servers:
     state: present
     image: rhel-guest
     key_name: ansible_ssh
+    interface: internal
     flavor: m2.small
     security_group: apps
+    net-name: int_network
     group: apps
     deployment_name: QA
+    wait: yes
   app2:
     name: app2
     cloud: ospcloud
@@ -30,10 +36,13 @@ osp_servers:
     state: present
     image: rhel-guest
     key_name: ansible_ssh
+    interface: internal
     flavor: m2.small
     security_group: apps
+    net-name: int_network
     group: apps
     deployment_name: QA
+    wait: yes
   db:
     name: db
     cloud: ospcloud
@@ -41,7 +50,10 @@ osp_servers:
     state: present
     image: rhel-guest
     key_name: ansible_ssh
+    interface: internal
     flavor: m2.small
     security_group: db
+    net-name: int_network
     group: appdbs
     deployment_name: QA
+    wait: yes

@@ -6,19 +6,19 @@
   block:
     - name: OS Server Build "{{ item.key }}"
       os_server:
-        state: "{{ state.value }}"
-        name: "{{ name.value }}"
-        cloud: "{{ cloud.value }}"
-        region_name: "{{ region_name.value }}"
-        interface: internal
+        name:        "{{ item.value }}"
+        cloud:       "{{ item.value }}"
+        region_name: "{{ item.value }}"
+        state:       "{{ item.value }}"
+        image: "{{ item.value }}"
+        key_name: "{{ item.value }}"
+        interface: "{{ item.value }}"
+        flavor: "{{ item.value }}"
+        security_groups: "{{ item.value }}"
         nics:
-          - net-name: int_network
-        key_name: "{{ key_name.value }}"
-        image: "{{ image.value }}"
-        flavor: "{{ flavor.value }}"
-        meta: "{ group: { group.value }, deployment_name: { deployment_name.value } }"
-        security_groups: "{{ security_group.value }}"
-        wait: yes
+          - net-name: "{{ item.value }}"
+        meta: "{ group: { item.value }, deployment_name: { item.value } }"
+        wait: "{{ item.value }}"
         userdata: |
           #!/bin/bash
           curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
