@@ -27,6 +27,6 @@
           cp /tmp/internal.repo /etc/yum.repos.d/internal.repo
       #with_items: { osp_servers }
       register: instanceip
-  - debug:
-        msg: successfully deployed
+  debug:
+    msg: successfully deployed
   ...
