@@ -11,9 +11,9 @@
   net_name: int_network
   deployment_name: QA
   float_ip_state: present
-  float_ip_reuse_value: true
+  float_ip_reuse_value: yes
   float_ip_net: ext_network
-  float_ip_wait: true
+  float_ip_wait: yes
   float_ip_timeout: True
 
 ...
