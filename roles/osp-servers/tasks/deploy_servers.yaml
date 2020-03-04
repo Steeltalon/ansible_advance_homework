@@ -1,5 +1,5 @@
 
-block:
+---
   - name: os_server used to create instance of ${{ server_name }} using os_server module
     # this command references server specific variables in frontend_vars.yaml
     # it also references general instance variables in the defaults/general_instance_vars.yaml
