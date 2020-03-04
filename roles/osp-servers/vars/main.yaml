@@ -1,7 +1,7 @@
 ---
 # vars file for osp.servers
 osp_servers:
-  frontend
+  frontend:
     cloud: ospcloud
     name: frontend
     region_name: RegionOne
@@ -14,7 +14,7 @@ osp_servers:
     net: int_network
     group: frontends
     deployment_name: QA
-  app1
+  app1:
     cloud: ospcloud
     name: app1
     region_name: RegionOne
@@ -27,7 +27,7 @@ osp_servers:
     net: int_network
     group: apps
     deployment_name: QA
-  app2
+  app2:
     name: app2
     cloud: ospcloud
     region_name: RegionOne
@@ -40,7 +40,7 @@ osp_servers:
     net: int_network
     group: apps
     deployment_name: QA
-  db
+  db:
     name: db
     cloud: ospcloud
     region_name: RegionOne
