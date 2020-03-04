@@ -10,7 +10,7 @@ osp_servers:
     key_name: ansible_ssh
     interface: internal
     flavor: m2.small
-    security_group: frontend
+    sec_group: frontend
     net-name: int_network
     group: frontends
     deployment_name: QA
@@ -24,7 +24,7 @@ osp_servers:
     key_name: ansible_ssh
     interface: internal
     flavor: m2.small
-    security_group: apps
+    sec_group: apps
     net-name: int_network
     group: apps
     deployment_name: QA
@@ -38,7 +38,7 @@ osp_servers:
     key_name: ansible_ssh
     interface: internal
     flavor: m2.small
-    security_group: apps
+    sec_group: apps
     net-name: int_network
     group: apps
     deployment_name: QA
@@ -52,7 +52,7 @@ osp_servers:
     key_name: ansible_ssh
     interface: internal
     flavor: m2.small
-    security_group: db
+    sec_group: db
     net-name: int_network
     group: appdbs
     deployment_name: QA
