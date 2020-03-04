@@ -14,7 +14,7 @@
         network: int_subnet
         image: "{{ item.value.image }}"
         flavor: "{{ item.value.flavor }}"
-        meta: "{ group: { item.value.meta.group }, deployment_name: { item.value.meta.deployment_name } }"
+        meta: "{ group: { item.value.group }, deployment_name: { item.value.deployment_name } }"
         security_groups: "{{ item.value.security_group }}"
         userdata: |
           #!/bin/bash
