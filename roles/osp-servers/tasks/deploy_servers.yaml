@@ -23,7 +23,7 @@
             curl -o /tmp/internal.repo http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
             cp /tmp/internal.repo /etc/yum.repos.d/internal.repo
         register: instanceip
-     - name: Adding floating IP to "{{ server_name }}" via os_floating_ip module
+     - name: 'Adding floating IP to "{{ server_name }}" via os_floating_ip module'
 # The servers have already been created so this will pull values from the defaults/general_instance_vars file to apply floating IP
        os_floating_ip:
          cloud:             "{{ ospcloud }}"
