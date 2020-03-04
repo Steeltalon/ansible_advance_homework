@@ -16,7 +16,7 @@
         flavor: "{{ item.value }}"
         security_groups: "{{ item.value }}"
         nics:
-          - net-name: "{{ item.value }}"
+          net-name: "{{ item.value }}"
         meta: "{ group: { item.value }, deployment_name: { item.value } }"
         wait: "{{ item.value }}"
         userdata: |
