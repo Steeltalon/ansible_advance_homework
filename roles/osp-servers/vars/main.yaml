@@ -1,7 +1,7 @@
 ---
 # vars file for osp.servers
 osp_servers:
-  frontend:
+  frontend: 
     cloud: ospcloud
     name: frontend
     region_name: RegionOne
