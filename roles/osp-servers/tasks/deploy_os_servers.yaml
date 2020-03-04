@@ -6,18 +6,18 @@
   block:
     - name: OS Server Build "{{ item.key }}"
       os_server:
-        cloud:       "{{ item.value }}"
-        name:        "{{ item.value }}"
-        region_name: "{{ item.value }}"
-        state:       "{{ lookup('dict', osp_servers, state) }}"
-        image: "{{ item.value }}"
-        key_name: "{{ item.value }}"
-        interface: "{{ item.value }}"
-        flavor: "{{ item.value }}"
+        cloud:       "{{ item.0.value }}"
+        name:        "{{ item.1.value }}"
+        region_name: "{{ item.2.value }}"
+        state:       "{{ item.3.value) }}"
+        image: "{{ item.4.value }}"
+        key_name: "{{ item.5.value }}"
+        interface: "{{ item.6.value }}"
+        flavor: "{{ item.7.value }}"
         security_groups:
-          "{ - { item.value } }"
-        network: "{{ item.value }}"
-        meta: "{ group: { item.value }, deployment_name: { item.value } }"
+          "{ - { item.8.value } }"
+        network: "{{ item.9.value }}"
+        meta: "{ group: { item.10.value }, deployment_name: { item.11.value } }"
         wait: true
         userdata: |
           #!/bin/bash
