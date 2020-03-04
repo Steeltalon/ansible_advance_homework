@@ -12,7 +12,7 @@
         region_name: "{{ item.value.region_name }}"
         interface: internal
         nics:
-          -net-name: int_network
+          - net-name: int_network
         key_name: ansible_ssh
         image: "{{ item.value.image }}"
         flavor: "{{ item.value.flavor }}"
