@@ -1,8 +1,6 @@
 ---
 # main playbook for running tasks to generate instances and apply ext_network
 
-Name: Deploy frontend
-tasks:
   - name: loading vars for frontend servers
     include_vars: frontend_vars.yaml
   - name: Running tasks to build frontend osp_servers
