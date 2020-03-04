@@ -7,9 +7,11 @@
 #    dir: /root/ansible_advance_homework/roles/osp-servers/vars
 
   ---
-    - name: loop over server deploys
-      include_tasks: deploy_os_servers.yaml
-      with_items: "{{ osp_servers }}"
-    - debug:
-            msg: successfully deployed { item.value.name }
+  tasks:
+  -debug:
+     msg: beginning loop process
+  - include_tasks: deploy_os_servers.yaml
+    with_items: "{{ osp_servers }}"
+  - debug:
+      msg: successfully deployed { item.value.name }
   ...
