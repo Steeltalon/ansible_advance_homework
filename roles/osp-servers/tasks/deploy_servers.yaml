@@ -1,5 +1,4 @@
-- name: Create a server instance and set internal and external networking
-  tasks:
+tasks:
     block:
       - name: os_server used to create instance of ${{ server_name }} using os_server module
     # this command references server specific variables in frontend_vars.yaml
