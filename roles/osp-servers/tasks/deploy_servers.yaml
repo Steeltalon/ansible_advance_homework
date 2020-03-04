@@ -35,7 +35,7 @@
     register: instancefloatingip
   - name: Show "{{ instanceip }}" public IP
     debug: var=instancefloatingip.floating_ip.floating_ip_address
-  - name: Wait for "{{ instance_name }}" to be available
+  - name: Wait for "{{ server_name }}" to be available
 # values for the wait phase are based in the server specific vars files
     wait_for:
       host:         "{{ instancefloatingip.floating_ip.floating_ip_address }}"
