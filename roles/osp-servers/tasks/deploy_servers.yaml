@@ -25,7 +25,7 @@
   - name: 'Adding floating IP to "{{ server_name }}" via os_floating_ip module'
 # The servers have already been created so this will pull values from the defaults/general_instance_vars file to apply floating IP
     os_floating_ip:
-      cloud:             "{{ ospcloud }}"
+      cloud:             "{{ cloud_name }}"
       state:             "{{ float_ip_state }}"
       reuse:             "{{ float_ip_reuse_value }}"
       server:            "{{ server_name }}"
