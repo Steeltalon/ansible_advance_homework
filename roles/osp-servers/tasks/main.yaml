@@ -8,7 +8,7 @@
 - name: deploy server instances in OSPCloud
   os_server:
     cloud:       "{{ item.cloud }}"
-    name:        "{{ item.name }}"
+    name:        "{{ item.sec_name }}"
     region_name: "{{ item.region_name }}"
     state:       "{{ item.state) }}"
     image: "{{ item.image }}"
