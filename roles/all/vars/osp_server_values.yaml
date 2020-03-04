@@ -11,7 +11,7 @@ osp_servers:
     interface: internal
     flavor: m2.small
     sec_group: frontend
-    net-name: int_network
+    net: int_network
     group: frontends
     deployment_name: QA
     wait: yes
@@ -25,7 +25,7 @@ osp_servers:
     interface: internal
     flavor: m2.small
     sec_group: apps
-    net-name: int_network
+    net: int_network
     group: apps
     deployment_name: QA
     wait: yes
@@ -39,7 +39,7 @@ osp_servers:
     interface: internal
     flavor: m2.small
     sec_group: apps
-    net-name: int_network
+    net: int_network
     group: apps
     deployment_name: QA
     wait: yes
@@ -53,7 +53,7 @@ osp_servers:
     interface: internal
     flavor: m2.small
     sec_group: db
-    net-name: int_network
+    net: int_network
     group: appdbs
     deployment_name: QA
     wait: yes

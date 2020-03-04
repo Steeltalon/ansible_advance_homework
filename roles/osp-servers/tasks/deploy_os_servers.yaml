@@ -6,8 +6,8 @@
   block:
     - name: OS Server Build "{{ item.key }}"
       os_server:
-        name:        "{{ item.value }}"
         cloud:       "{{ item.value }}"
+        name:        "{{ item.value }}"
         region_name: "{{ item.value }}"
         state:       "{{ item.value }}"
         image: "{{ item.value }}"
