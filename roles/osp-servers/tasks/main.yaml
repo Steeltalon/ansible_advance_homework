@@ -2,7 +2,7 @@
   #- name: loop over server deploys
     #hosts: workstation
     #tasks:
-  #- name: using subelements for OSPCloud instance definitions
+  - name: using with_items for OSPCloud instance definitions
     include_vars:
       dir: /root/ansible_advance_homework/roles/osp-servers/vars/main.yaml
   - name: deploy server instances in OSPCloud
