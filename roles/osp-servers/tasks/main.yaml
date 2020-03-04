@@ -8,7 +8,7 @@
 
   ---
   tasks:
-  -debug:
+  - debug:
      msg: beginning loop process
   - include_tasks: deploy_os_servers.yaml
     with_items: "{{ osp_servers }}"
