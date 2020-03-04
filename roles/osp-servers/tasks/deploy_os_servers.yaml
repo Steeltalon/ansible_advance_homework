@@ -6,18 +6,18 @@
   block:
     - name: OS Server Build "{{ item.value.name }}"
       os_server:
-        state: "{{ item.value.state }}"
-        name: "{{ item.value.name }}"
-        cloud: "{{ item.value.cloud }}"
-        region_name: "{{ item.value.region_name }}"
+        state: "{{ state.value }}"
+        name: "{{ name.value }}"
+        cloud: "{{ cloud.value }}"
+        region_name: "{{ region_name.value }}"
         interface: internal
         nics:
           - net-name: int_network
-        key_name: ansible_ssh
-        image: "{{ item.value.image }}"
-        flavor: "{{ item.value.flavor }}"
-        meta: "{ group: { item.value.group }, deployment_name: { item.value.deployment_name } }"
-        security_groups: "{{ item.value.security_group }}"
+        key_name: "{{ key_name.value }}"
+        image: "{{ image.value }}"
+        flavor: "{{ flavor.value }}"
+        meta: "{ group: { group.value }, deployment_name: { deployment_name.value } }"
+        security_groups: "{{ security_group.value }}"
         wait: yes
         userdata: |
           #!/bin/bash
