@@ -9,7 +9,7 @@
         cloud:       "{{ item.value }}"
         name:        "{{ item.value }}"
         region_name: "{{ item.value }}"
-        state:       "{{ item.value }}"
+        state:       "{{ lookup('dict', state) }}"
         image: "{{ item.value }}"
         key_name: "{{ item.value }}"
         interface: "{{ item.value }}"
