@@ -8,7 +8,7 @@
   - name: deploy server instances in OSPCloud
     - debug:
         msg: OS Server Build "{{ item.server_name }}"
-      os_server:
+    - os_server:
         cloud:       "{{ item.cloud }}"
         name:        "{{ item.name }}"
         region_name: "{{ item.region_name }}"
