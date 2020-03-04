@@ -18,7 +18,7 @@
           "{ - { item.value } }"
         network: "{{ item.value }}"
         meta: "{ group: { item.value }, deployment_name: { item.value } }"
-        wait: "{{ item.value }}"
+        wait: true
         userdata: |
           #!/bin/bash
           curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
