@@ -1,5 +1,5 @@
 ---
-  tasks:
+  
   - debug:
       msg: beginning loop process
   - include_tasks: deploy_os_servers.yaml
