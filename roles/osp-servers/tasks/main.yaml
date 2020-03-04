@@ -4,7 +4,7 @@
     #tasks:
 - name: using with_items for OSPCloud instance definitions
   include_vars:
-    dir: /root/ansible_advance_homework/roles/osp-servers/vars/main.yaml
+    dir: /root/ansible_advance_homework/roles/osp-servers/vars
 - name: deploy server instances in OSPCloud
   os_server:
     cloud:       "{{ item.cloud }}"
