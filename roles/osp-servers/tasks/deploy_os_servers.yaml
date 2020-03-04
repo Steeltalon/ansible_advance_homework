@@ -11,11 +11,14 @@
         cloud: "{{ item.value.cloud }}"
         region_name: "{{ item.value.region_name }}"
         interface: internal
-        network: int_subnet
+        nics:
+          -net-name: int_network
+        key_name: ansible_ssh
         image: "{{ item.value.image }}"
         flavor: "{{ item.value.flavor }}"
         meta: "{ group: { item.value.group }, deployment_name: { item.value.deployment_name } }"
         security_groups: "{{ item.value.security_group }}"
+        wait: yes
         userdata: |
           #!/bin/bash
           curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
