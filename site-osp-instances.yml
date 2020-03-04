@@ -1,4 +1,7 @@
+---
 - hosts: workstation
   become: yes
   roles:
     - osp-servers
+  include_tasks: osp_fact_gather.yml
+...

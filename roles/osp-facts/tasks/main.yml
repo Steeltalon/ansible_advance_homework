@@ -2,8 +2,8 @@
 # tasks file for osp-facts
    - name: Fetch Instance Info
      os_server_facts:
-      cloud: ospcloud
-      region_name: RegionOne
+      cloud: "{{ cloud_name }}"
+      region_name: "{{ region_name }}"
      register: result
    - name: Add host
      add_host:
