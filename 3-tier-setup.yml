@@ -3,10 +3,14 @@
 - hosts: workstation
   gather_facts: true
   name: gather facts from OpenStack Cloud
-
-  tasks:
+  pre_tasks:
     - import_role:
         name: osp-facts
+- name: set base configuration and enable yum repositories
+  hosts: all
+  gather_facts: false
+  become: yes
+  tasks:
     - include_tasks: site-3tier-app.yml
 
 ...
