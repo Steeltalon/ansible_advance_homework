@@ -6,7 +6,7 @@
 
 - name: configure haproxy
   template:
-    src: haproxy.cfg.j2
+    src: /root/ansible_advance_homework/roles/lb-tier/templates/haproxy.cfg.j2
     dest: /etc/haproxy/haproxy.cfg
   notify: start haproxy
 ...
