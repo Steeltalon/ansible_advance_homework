@@ -7,7 +7,6 @@
   tasks:
     - import_role:
         name: osp-facts
-    - include_tasks:
-        name: site-3tier-app.yml
+    - include_tasks: site-3tier-app.yml
 
 ...
