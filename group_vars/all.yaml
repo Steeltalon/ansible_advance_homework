@@ -2,7 +2,7 @@
 
 #group_vars all file
 ansible_connection: ssh
-ansible_ssh_user: cloud_user
+ansible_ssh_user: cloud-user
 
 #general variables for defining any server instance
 cloud_name: ospcloud
