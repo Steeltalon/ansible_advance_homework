@@ -1,4 +1,5 @@
 ---
+# set up 3-tier-app using tags as filters
 - name: set base configuration and enable repositories
   include_role:
     name: base-config
@@ -14,4 +15,24 @@
       tags:
         - lbs
         - haproxy
-  tags: frontend
+  tags: frontend_tag
+
+-name: Setup application servers tier (tomcat, app1 and app2 )
+  include_role:
+    name: app-tier
+    apply:
+      tags:
+        - apps
+        - tomcat
+  tags:
+      - app_tags
+
+- name: setup database tier (postgresql and httpd)
+    include_role:
+      - name: db-tier
+        apply:
+          tags:
+            - dbs
+            - postgres
+    tags:
+      - db_tags
