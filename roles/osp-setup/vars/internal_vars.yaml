@@ -1,0 +1,5 @@
+network_name: int_network
+subnet_name: int_subnet
+cidr_network: "20.20.20.0/24"
+state_value: present
+external: false

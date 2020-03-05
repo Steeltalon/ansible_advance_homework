@@ -1,0 +1,5 @@
+state_value: present
+network_name: router
+network: ext_network
+assigned_subnet: ext_subnet
+assigned_interface: int_subnet

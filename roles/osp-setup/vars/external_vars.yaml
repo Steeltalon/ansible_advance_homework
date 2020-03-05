@@ -1,0 +1,7 @@
+---
+network_name: ext_network
+subnet_name: ext_subnet
+cidr_network: "10.10.10.0/24"
+state_value: present
+external_value: true
+...

@@ -1,0 +1,10 @@
+- name: retrieve variables for external network
+  include_vars:
+    file: external_vars.yaml
+- name: Configure External Network
+  os_network:
+    cloud: "{{ cloud_name }}"
+    state: "{{ state_value }}"
+    name: "{{ network_name }}"
+    external: "{{ external_value }}"
+...

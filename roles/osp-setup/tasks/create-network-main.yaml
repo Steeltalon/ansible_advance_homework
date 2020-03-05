@@ -1,0 +1,6 @@
+- name: create the external network
+  include_tasks: external_network_create.yaml
+- name: create internal network
+  include_tasks: internal_network_create.yaml
+- name: create router
+  include_tasks: router_create.yaml

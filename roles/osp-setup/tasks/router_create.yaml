@@ -1,0 +1,12 @@
+- name: loading variables for router creation
+  include_vars: router_vars.yaml
+- name: Create Router
+  os_router:
+    cloud: "{{ cloud_name }}"
+    state: "{{ state_value }}"
+    name: "{{ network_name }}"
+    network: "{{ network_type }}"
+    external_fixed_ips:
+      "- { subnet: {ext_subnet} }"
+    interfaces:
+      - "{{ int_subnet }}"
