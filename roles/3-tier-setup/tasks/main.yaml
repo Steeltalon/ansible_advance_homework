@@ -19,7 +19,7 @@
 
 - name: "Setup application servers tier (tomcat, app1 and app2 )"
   include_role:
-  - name: app-tier
+    name: app-tier
     apply:
       tags:
         - apps
@@ -29,7 +29,7 @@
 
 - name: "setup database tier (postgresql and httpd)"
   include_role:
-    - name: db-tier
+      name: db-tier
       apply:
         tags:
           - dbs
