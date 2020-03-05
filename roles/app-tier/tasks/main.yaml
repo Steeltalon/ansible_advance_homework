@@ -6,6 +6,8 @@
 - name: Create directory
   file:
     path: "{{ ansible_tomcat_path }}"
+    owner: root
+    group: root
     state: directory
 # copy the index.html.j2 to the tomcat app servers in an index.html file
 - name: Copy static index.html to app servers
