@@ -1,4 +1,9 @@
 ---
+
+#group_vars all file
+ansible_connection: ssh
+ansible_ssh_user: cloud_user
+
 #general variables for defining any server instance
   cloud_name: ospcloud
   region_name: RegionOne
