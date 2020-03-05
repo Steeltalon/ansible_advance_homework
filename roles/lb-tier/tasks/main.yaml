@@ -8,5 +8,12 @@
   template:
     src:  haproxy.conf.j2
     dest: /etc/haproxy/haproxy.cfg
-  notify: start haproxy
+
+- name: Enable HAProxy
+  haproxy:
+    state: enabled
+    host: '{{ inventory_hostname }}'
+    wait: yes
+    wait_retries: 10
+    wait_interval: 5
 ...
