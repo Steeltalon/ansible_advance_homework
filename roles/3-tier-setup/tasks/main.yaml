@@ -18,7 +18,7 @@
   tags: frontend_tag
 
 -name: Setup application servers tier (tomcat, app1 and app2 )
-include_role:
+ include_role:
   - name: app-tier
     apply:
       tags:
