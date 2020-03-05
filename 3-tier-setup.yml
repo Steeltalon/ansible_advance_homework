@@ -10,7 +10,7 @@
   hosts: all
   gather_facts: false
   become: yes
-    - import_role:
-        name: 3-tier-setup 
+  import_role:
+    name: 3-tier-setup 
 
 ...
