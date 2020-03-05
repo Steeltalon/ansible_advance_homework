@@ -1,6 +1,6 @@
 ---
 - include_role:
-  name: install_tomcat
+    name: install_tomcat
 
 # create directory using path described in app-tier/defaults/path_for_tomcat.yaml
 - name: Create directory
