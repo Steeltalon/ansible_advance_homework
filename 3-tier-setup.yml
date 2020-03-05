@@ -4,7 +4,7 @@
   gather_facts: true
   name: gather facts from OpenStack Cloud
   import_role:
-      - osp-facts
+    name: osp-facts
   include_tasks:
     name: site-3tier-app.yml
 
