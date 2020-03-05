@@ -17,5 +17,7 @@
     include_vars: db_vars.yaml
   - name: Running tasks to build db server (postgresql and httpd)
     include_tasks: deploy_servers.yaml
+    tags:
+     - test_inventory
 
 ...
