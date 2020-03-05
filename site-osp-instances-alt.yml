@@ -5,5 +5,5 @@
   become: yes
   roles:
     - osp-servers
-    #- osp-facts
+    - osp-facts
 ...
