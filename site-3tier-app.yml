@@ -1,7 +1,6 @@
 ---
-
-#set base configuration and enable yum repositories
-- hosts: all
+- name: set base configuration and enable yum repositories
+  hosts: all
   gather_facts: false
   roles:
-    3-tier-setup
+    - 3-tier-setup
