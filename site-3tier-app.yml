@@ -1,25 +1,25 @@
 ---
 
 #set base configuration and enable yum repositories
-- hosts: all
-  #name: Set base configuration and enable yum repositories
+  hosts: all
   gather_facts: false
-  include_role:
-    name: base-config
-    apply:
-      tags:
-        - base-config
-  tags: always
-
+  tasks:
+    - name: set base configuration and enable repositories
+      include_role:
+        name: base-config
+        apply:
+          tags:
+            - base-config
+      tags: always
 # Setup front-end load balancer tier
-- hosts: frontends
-  #name: Setup front-end load balancer tier (haproxy)
-  become: yes
-  gather_facts: false
-  include_role:
-    name: lb-tier
-    apply:
-      tags:
-        - lbs
-        - haproxy
-  tags: frontend
+
+  #become: yes
+  #gather_facts: false
+    - name: Setup front-end load balancer tier (haproxy)
+      include_role:
+        name: lb-tier
+        apply:
+          tags:
+            - lbs
+            - haproxy
+      tags: frontend
