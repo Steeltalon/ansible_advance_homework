@@ -2,36 +2,24 @@
 
 #set base configuration and enable yum repositories
 - hosts: all
-  name: Set base configuration and enable yum repositories
+  #name: Set base configuration and enable yum repositories
   gather_facts: false
-  roles:
-    role: base-config
-    tags:
-      - base-config
+  include_role:
+    name: base-config
+    apply:
+      tags:
+        - base-config
+  tags: always
 
 # Setup front-end load balancer tier
 - hosts: frontends
-  name: Setup front-end load balancer tier (haproxy)
+  #name: Setup front-end load balancer tier (haproxy)
   become: yes
   gather_facts: false
-  roles:
-    role: lb-tier
-    tags:
+  include_role:
+    name: lb-tier
+    apply:
+      tags:
         - lbs
         - haproxy
-
-# Setup application servers tier
-- hosts: apps
-  name: Setup application servers tier (tomcat)
-  become: yes
-  gather_facts: false
-  roles:
-    - { name: app-tier, tags: [apps, tomcat] }
-
-# Setup database tier
-- hosts: appdbs
-  name: setup database tier (postgresql and httpd)
-  become: yes
-  gather_facts: false
-  roles:
-    - { name: db-tier, tags: [dbs, postgres] }
+  tags: frontend

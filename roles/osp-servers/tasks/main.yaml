@@ -5,19 +5,22 @@
     include_vars: frontend_vars.yaml
   - name: Running tasks to build frontend osp_servers (haproxy)
     include_tasks: deploy_servers.yaml
+    tags: frontend_tag
   - name: loading vars for app1 server
     include_vars: app1_vars.yaml
   - name: Running tasks to build app1 server (tomcat)
     include_tasks: deploy_servers.yaml
+    tags: app_tags
   - name: loading vars for app2 server
     include_vars: app2_vars.yaml
   - name: Running tasks to build app2 server (tomcat)
     include_tasks: deploy_servers.yaml
+    tags: app_tags
   - name: loading vars for db
     include_vars: db_vars.yaml
   - name: Running tasks to build db server (postgresql and httpd)
     include_tasks: deploy_servers.yaml
-    tags:
-     - test_inventory
+    tags: db_tags
+
 
 ...
