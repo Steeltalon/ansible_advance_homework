@@ -8,7 +8,7 @@
         - base-config
   tags: always
 
-- name: Setup front-end load balancer tier (haproxy)
+- name: "Setup front-end load balancer tier (haproxy)"
   include_role:
     name: lb-tier
     apply:
@@ -17,7 +17,7 @@
         - haproxy
   tags: frontend_tag
 
-- name: Setup application servers tier (tomcat, app1 and app2 )
+- name: "Setup application servers tier (tomcat, app1 and app2 )"
   include_role:
   - name: app-tier
     apply:
@@ -27,7 +27,7 @@
   tags:
       - app_tags
 
-- name: setup database tier (postgresql and httpd)
+- name: "setup database tier (postgresql and httpd)"
   include_role:
     - name: db-tier
       apply:
