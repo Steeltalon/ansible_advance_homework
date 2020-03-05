@@ -1,21 +1,17 @@
 ---
-  tasks:
-    - name: set base configuration and enable repositories
-      include_role:
-        name: base-config
-        apply:
-          tags:
-            - base-config
-      tags: always
-# Setup front-end load balancer tier
+- name: set base configuration and enable repositories
+  include_role:
+    name: base-config
+    apply:
+      tags:
+        - base-config
+  tags: always
 
-  #become: yes
-  #gather_facts: false
-    - name: Setup front-end load balancer tier (haproxy)
-      include_role:
-        name: lb-tier
-        apply:
-          tags:
-            - lbs
-            - haproxy
-      tags: frontend
+- name: Setup front-end load balancer tier (haproxy)
+  include_role:
+    name: lb-tier
+    apply:
+      tags:
+        - lbs
+        - haproxy
+  tags: frontend
