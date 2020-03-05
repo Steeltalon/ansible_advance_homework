@@ -10,7 +10,7 @@
   hosts: all
   gather_facts: false
   become: yes
-  tasks:
-    - include_tasks: site-3tier-app.yml
+    - import_role:
+        name: 3-tier-setup 
 
 ...
