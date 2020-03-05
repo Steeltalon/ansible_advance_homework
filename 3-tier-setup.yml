@@ -3,9 +3,11 @@
 - hosts: workstation
   gather_facts: true
   name: gather facts from OpenStack Cloud
-  import_role:
-    name: osp-facts
-  include_tasks:
-    name: site-3tier-app.yml
+
+  tasks:
+    - import_role:
+        name: osp-facts
+    - include_tasks:
+        name: site-3tier-app.yml
 
 ...
