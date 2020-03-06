@@ -37,6 +37,8 @@
     register: job_result
     until: job_result.finished
     retries: 30
+    debug:
+      msg: Cthulhu awakens and devours "{{ server_name }}"
 # values for the wait phase are based in the server specific vars files
 #  - name: Wait for "{{ server_name }}" to be available
   #  wait_for:
