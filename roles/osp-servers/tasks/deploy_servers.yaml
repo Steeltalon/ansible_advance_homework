@@ -31,20 +31,11 @@
     poll: 0
     register: cthulhu
 
-  - name: Cthulhu sleeps during asynchronous processes
+  - name: Cthulhu sleeps during asynchronous processes until it is time to devour "{{ server_name }}"
     async_status:
       jid: "{{ cthulhu.ansible_job_id }}"
     register: job_result
     until: job_result.finished
     retries: 30
-    debug:
-      msg: Cthulhu awakens and devours "{{ server_name }}"
-# values for the wait phase are based in the server specific vars files
-#  - name: Wait for "{{ server_name }}" to be available
-  #  wait_for:
-  #    host:         "{{ instancefloatingip.floating_ip.floating_ip_address }}"
-  #    port:         "{{ port_value }}"
-  #    search_regex: "{{ search_value }}"
-  #    timeout:      "{{ timeout_value }}"
-  #  delegate_to:    "{{ inventory_hostname }}"
+
 ...
