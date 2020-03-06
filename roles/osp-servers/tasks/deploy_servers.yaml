@@ -38,14 +38,15 @@
       network:           "{{ float_ip_net }}"
       wait:              "{{ float_ip_wait }}"
       timeout:           "{{ float_ip_timeout }}"
-    register: cthulhu_float
+    register: cthulhu
 
-  - name: Cthulhu sleeps during asynchronous processes until it is time to devour "{{ server_name }}"
-    async_status:
-      jid: "{{ cthulhu_float.ansible_job_id }}"
-    register: job_result
-    until: job_result.finished
-    retries: 30
+  - name: Cthulhu sleeps during asynchronous processes until it is time to devour "{{ server_name }} and its floating ip address"
+    wait_for:
+      host: "{{ item.floating_ip.floating_ip_address }}"
+      port: "{{ port_value }}"
+      search_regex: "{{ search_value }}"
+      timeout: "{{ timeout_value}}"
+    delegate_to: "{{ inventory_hostname }}"
 
 
 
