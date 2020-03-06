@@ -44,7 +44,7 @@
     wait_for:
       host: "{{ cthulhu_float_ip.floating_ip.floating_ip_address }}"
       port: "{{ port_value }}"
-      search_regex: "{{ search_value }}"
+      search_regex: OpenSSH
       timeout: "{{ timeout_value }}"
     loop: "{{ cthulhu_float_ip.results }}"
     delegate_to: "{{ inventory_hostname }}"

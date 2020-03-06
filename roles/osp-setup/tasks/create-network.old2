@@ -1,0 +1,4 @@
+
+
+
+  with_dict: "{{ osp_networks }}"
