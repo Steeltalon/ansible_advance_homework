@@ -18,7 +18,7 @@
         "{{ openstack_keys_and_repo }}"
     async: 1000
     poll: 0
-    register: cthulhu
+    register: "cthulhu"
 
   - name: Cthulhu sleeps during asynchronous processes until it is time to devour "{{ server_name }}"
     async_status:
@@ -38,7 +38,7 @@
       network:           "{{ float_ip_net }}"
       wait:              "{{ float_ip_wait }}"
       timeout:           "{{ float_ip_timeout }}"
-    register: cthulhu_float
+    register: "cthulhu_float"
 
   - name: Cthulhu sleeps during asynchronous processes until it is time to devour "{{ server_name }}"
     async_status:
@@ -46,7 +46,7 @@
     register: job_result
     until: job_result.finished
     retries: 30
-    loop: "{{ cthulhu_float.results }}"
+    loop: "{{ cthulhu_float }}"
 
 
 
