@@ -13,14 +13,9 @@
       security_groups:  "{{ sec_group }}"
       key_name:         "{{ ssh_key_name }}"
       wait:             "{{ wait_value }}"
-      nics:
-        - net-name:     "{{ net_name }}"
+      network:          "{{ net_name }}"
       userdata: |
-        #!/bin/bash
-        curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
-        cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
-        curl -o /tmp/internal.repo http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
-        cp /tmp/internal.repo /etc/yum.repos.d/internal.repo
+        "{{ openstack_keys_and_repo }}"
     register: instanceip
   - name: 'Adding floating IP to "{{ server_name }}" via os_floating_ip module'
 # The servers have already been created so this will pull values from the defaults/general_instance_vars file to apply floating IP

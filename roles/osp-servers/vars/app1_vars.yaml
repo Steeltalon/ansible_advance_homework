@@ -1,4 +1,4 @@
 ---
-  server_name: app1
-  sec_group: apps
-  group: apps
+server_name: app1
+sec_group: apps
+group: apps
