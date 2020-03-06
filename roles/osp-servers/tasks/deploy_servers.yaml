@@ -39,6 +39,14 @@
       wait:              "{{ float_ip_wait }}"
       timeout:           "{{ float_ip_timeout }}"
 
+  - name: Cthulhu sleeps during asynchronous processes until it is time to devour "{{ server_name }}"
+    async_status:
+      jid: "{{ cthulhu.ansible_job_id }}"
+    register: job_result
+    until: job_result.finished
+    retries: 30
+    loop: "{{ cthulhu.results }}"
+
 
 
 ...
