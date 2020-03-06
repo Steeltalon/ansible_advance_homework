@@ -29,10 +29,7 @@
       timeout:           "{{ float_ip_timeout }}"
     async: 1000
     poll: 0
-    register: instancefloatingip, cthulhu
-
-  - name: Show "{{ instanceip }}" public IP
-    debug: var=instancefloatingip.floating_ip.floating_ip_address
+    register: cthulhu
 
   - name: Cthulhu sleeps during asynchronous processes
     async_status:
