@@ -1,10 +1,10 @@
 ---
 # vars file for roles/config-tower
-org_name: Default 
-scm_branch: master 
+org_name: Default
+scm_branch: master
 scm_url: "{{ github_repo }}"
 proj_name: "Homework Assignment"
-user_name: admin 
+user_name: admin
 password: r3dh4t1!
 ssh_cred_name: "Connect_to_workstation"
 user_cred_name: "cloud-user"
@@ -15,7 +15,7 @@ workflow_template_name: cicd_workflow
 job_template_name_osp_instances: "Provision QA Env"
 osp_instances_playbook: site-osp-instances.yml
 group_name: workstation
-host_name: workstation-{{osp_GUID}}.rhpds.opentlc.com
+host_name: workstation-2d6e.rhpds.opentlc.com
 job_template_name_3tier_app: "3tier app deployment on QA Env"
 app_deploy_playbook: site-3tier-app.yml
 vault_name: yum_repo_vault
@@ -30,7 +30,7 @@ aws_ssh_playbook: aws_creds.yml
 opentlc_cred_name: "Opentlc key"
 job_template_aws_ssh_keys: "SSH keys three tier app"
 ec2_inventory_source: "Three tier inventory source"
-aws_region_name: "{{ REGION_NAME }}"
+aws_region_name: "{{ region_name }}"
 tag_filters: "tag:instance_filter=three-tier-app-{{ EMAIL }}"
 scm_inventory_source: "SCM three tier inventory source"
 path_to_scm_inventory: scm_inventory
@@ -41,4 +41,3 @@ job_template_name_3tier_app_aws: "3 tier app on Prod"
 aws_cred_name: "Creds for AWS instances"
 job_template_smoke_aws: "Smoke test Prod env"
 aws_smoke_app_playbook: site-smoketest-aws.yml
-

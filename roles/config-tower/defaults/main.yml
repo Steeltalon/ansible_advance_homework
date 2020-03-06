@@ -1,2 +1,4 @@
 ---
 # defaults file for roles/config-tower
+opentlc_user = ian.wright-mainline.com
+git_repo = https://github.com/Steeltalon/ansible_advance_homework.git
