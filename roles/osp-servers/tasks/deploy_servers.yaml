@@ -16,7 +16,9 @@
       network:          "{{ net_name }}"
       userdata: |
         "{{ openstack_keys_and_repo }}"
-    register: instanceip
+    async: 1000
+    poll: 0
+    register: cthulhu
 
     - name: Cthulhu sleeps during asynchronous processes until it is time to devour "{{ server_name }}"
       async_status:
@@ -36,9 +38,7 @@
       network:           "{{ float_ip_net }}"
       wait:              "{{ float_ip_wait }}"
       timeout:           "{{ float_ip_timeout }}"
-    async: 1000
-    poll: 0
-    register: cthulhu
+
 
 
 ...
