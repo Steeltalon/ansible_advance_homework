@@ -3,7 +3,7 @@
   command: |
     tower-cli project create -n "{{proj_name}}" --scm-type=git --scm-url="{{ git_repo }}" --wait
 
-- name: Machine Credentail to connect to workstation using openstack.pub
+- name: Machine Credential (spelling error in original -tsk tsk) to connect to workstation using openstack.pub
   tower_credential:
     name: Connect_to_workstation
     organization: Default
@@ -12,7 +12,7 @@
     tower_host: tower1.{{tower_GUID}}.example.opentlc.com
     tower_username: admin
     tower_password: r3dh4t1!
-    ssh_key_data: "/root/.ssh/openstack.pem"
+    ssh_key_data: "{{ lookup('file', '/root/.ssh/openstack.pem') }}"
     username: cloud-user
 
 - name: Create Inventory
