@@ -20,13 +20,13 @@
     poll: 0
     register: cthulhu
 
-    - name: Cthulhu sleeps during asynchronous processes until it is time to devour "{{ server_name }}"
-      async_status:
-        jid: "{{ cthulhu.ansible_job_id }}"
-      register: job_result
-      until: job_result.finished
-      retries: 30
-      loop: "{{ cthulhu.results }}"
+  - name: Cthulhu sleeps during asynchronous processes until it is time to devour "{{ server_name }}"
+    async_status:
+      jid: "{{ cthulhu.ansible_job_id }}"
+    register: job_result
+    until: job_result.finished
+    retries: 30
+    loop: "{{ cthulhu.results }}"
 
   - name: 'Adding floating IP to "{{ server_name }}" via os_floating_ip module'
 # The servers have already been created so this will pull values from the defaults/general_instance_vars file to apply floating IP
