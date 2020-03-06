@@ -5,6 +5,6 @@ openstack_keys_and_repo:
   curl -o /tmp/internal.repo http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
   cp /tmp/internal.repo /etc/yum.repos.d/internal.repo"
 
-  port_value: 22
-  search_value: OpenSSH
-  timeout_value: 600
+port_value: 22
+search_value: OpenSSH
+timeout_value: 600
