@@ -1,24 +1,27 @@
 ---
 # main playbook for running tasks to generate instances and apply ext_network
-
+  - name: Loading vars to build frontend servers
+    include_vars: frontend_vars.yaml
   - name: Running tasks to build frontend osp_servers (haproxy)
     include_tasks: deploy_servers.yaml
-      vars_from: frontend_vars.yaml
     tags: frontend_tag
 
+  - name: Loading vars to build app1 server.
+    include_vars: app1_vars.yaml
   - name: Running tasks to build app1 server (tomcat)
     include_tasks: deploy_servers.yaml
-      vars_from: app1_vars.yaml
     tags: app_tags
 
+  - name: Loading vars to build app 2 server
+    include_vars: app2_vars.yaml
   - name: Running tasks to build app2 server (tomcat)
     include_tasks: deploy_servers.yaml
-      vars_from: app2_vars.yaml
     tags: app_tags
 
+  - name: Loading vars to build db server
+    include_vars: db_vars.yaml
   - name: Running tasks to build db server (postgresql and httpd)
     include_tasks: deploy_servers.yaml
-      vars_from: db_vars.yaml
     tags: db_tags
 
 
