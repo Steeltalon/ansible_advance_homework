@@ -38,7 +38,7 @@
       network:           "{{ float_ip_net }}"
       wait:              "{{ float_ip_wait }}"
       timeout:           "{{ float_ip_timeout }}"
-    register: "cthulhu_float"
+    register: cthulhu_float
 
   - name: Cthulhu sleeps during asynchronous processes until it is time to devour "{{ server_name }}"
     async_status:
