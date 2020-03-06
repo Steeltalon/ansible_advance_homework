@@ -38,13 +38,14 @@
       network:           "{{ float_ip_net }}"
       wait:              "{{ float_ip_wait }}"
       timeout:           "{{ float_ip_timeout }}"
+    register: cthulhu_float_ip
 
   - name: Cthulhu sleeps until it is time to devour "{{ server_name }} and its floating ip address"
     wait_for:
-      host: "{{ item.floating_ip.floating_ip_address }}"
+      host: "{{ cthulhu_float_ip.floating_ip.floating_ip_address }}"
       port: "{{ port_value }}"
       search_regex: "{{ search_value }}"
-      timeout: "{{ timeout_value}}"
+      timeout: "{{ timeout_value }}"
     delegate_to: "{{ inventory_hostname }}"
 
 
