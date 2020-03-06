@@ -40,7 +40,7 @@
       timeout:           "{{ float_ip_timeout }}"
     register: cthulhu_float_ip
 
-  - name: Cthulhu sleeps until it is time to devour "{{ server_name }} and its floating ip address"
+  - name: Cthulhu sleeps until it is time to devour "{{ server_name }}" and its floating ip address
     wait_for:
       host: "{{ cthulhu_float_ip.floating_ip.floating_ip_address }}"
       port: "{{ port_value }}"
