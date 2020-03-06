@@ -18,9 +18,9 @@
         "{{ openstack_keys_and_repo }}"
     async: 1000
     poll: 0
-    register: "cthulhu"
+    register: cthulhu
   - debug:
-      msg: "{{ cthulhu.results }}"
+      msg: "{{ cthulhu }}"
 
   - name: Cthulhu sleeps during asynchronous processes until it is time to devour "{{ server_name }}"
     async_status:
