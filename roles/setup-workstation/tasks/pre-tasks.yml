@@ -28,7 +28,7 @@
             password: r3dh4t1!
             project_name: admin
             username: admin
-          identity_api_version: '3'
+          identity_api_version: '3.0'
           region_name: RegionOne
 
 #set public key for openstack
