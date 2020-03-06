@@ -19,7 +19,7 @@
     async: 1000
     poll: 0
     register: "cthulhu"
-    debug:
+  - debug:
       msg: "{{ cthulhu.results }}"
 
   - name: Cthulhu sleeps during asynchronous processes until it is time to devour "{{ server_name }}"
