@@ -13,7 +13,7 @@
     tower_username: admin
     tower_password: r3dh4t1!
     ssh_key_data: "{{ lookup('file', '/root/.ssh/openstack.pem' ) }}"
-    username: "{{ user_cred_name }}"
+    username: cloud-user
 
 - name: Create Inventory
   command: |

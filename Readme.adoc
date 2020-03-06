@@ -7,14 +7,14 @@
 ----
 [bastion]$ sudo -i
 [bastion]# cd ansible_advance_homework
-[bastion]# TOWER_GUID=<Ansible Tower Homework GUID from mail>
-[bastion]# OSP_GUID=<Openstack for Ansible GUID from mail>
-[bastion]# OPENTLC_LOGIN=<username-company.com>
-[bastion]# OPENTLC_PASSWORD=<your openlc account password>
-[bastion]# GITHUB_REPO=https://github.com/<githubhandler>/ansible_advance_homework
+[bastion]# TOWER_GUID=f451
+[bastion]# OSP_GUID=2d6e
+[bastion]# OPENTLC_LOGIN=ian.wright-mainline.com
+[bastion]# OPENTLC_PASSWORD=7W0cS98dm7aS5mxRiBG
+[bastion]# GITHUB_REPO=https://github.com/Steeltalon/ansible_advance_homework.git
 [bastion]# JQ_REPO_BASE=http://www.opentlc.com/download/ansible_bootcamp
-[bastion]# REGION=<enter region name example us-east-1>
-[bastion]# RH_MAIL_ID=<your mail id for dynamic inventory tag>
+[bastion]# REGION=us-east-1
+[bastion]# RH_MAIL_ID=ian.wright@mainline.com
 [bastion]# ansible-playbook site-config-tower.yml -e tower_GUID=${TOWER_GUID} -e osp_GUID=${OSP_GUID} -e opentlc_login=${OPENTLC_LOGIN} -e path_to_opentlc_key=/root/.ssh/mykey.pem -e param_repo_base=${JQ_REPO_BASE} -e opentlc_password=${OPENTLC_PASSWORD} -e REGION_NAME=${REGION} -e EMAIL=${RH_MAIL_ID} -e github_repo=${GITHUB_REPO}
 ----
 
@@ -27,7 +27,7 @@
 | db-tier  | Install postgressql server for database role
 | lb-tier  | Install HA proxy role
 | base-config | Setup yum repo and base packages role
-| setup-workstation | Setup workstation, create network, ssh keypair, security group etc. role 
+| setup-workstation | Setup workstation, create network, ssh keypair, security group etc. role
 | osp-servers | Provision OSP Instances role
 | osp-instance-delete | Delete OSP Instances role
 | osp-facts | Genrate in-memory inventory for OSP instances role
