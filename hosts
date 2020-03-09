@@ -1,8 +1,8 @@
 [bastion_tower]
-bastion.f451.example.opentlc.com  ansible_connection=local
+bastion.48cb.example.opentlc.com  ansible_connection=local
 
 [workstation]
-workstation-2d6e.rhpds.opentlc.com
+workstation-dd89.rhpds.opentlc.com
 
 [all:vars]
 ansible_user=cloud-user
